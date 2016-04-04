@@ -16,7 +16,4 @@ Public Class Form1
         Register.Show()
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        TextBox1.Text = Decrypt("uaiLnEuDHjOX5GTX2mxuO7pXM/3XVhO1V3wEDt/LaDE=", "ThisWillBeSalted")
-    End Sub
 End Class

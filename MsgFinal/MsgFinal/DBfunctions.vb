@@ -42,6 +42,8 @@ Module DBfunctions
             Return
         End Try
 
+        sa = Encrypt(sa, user)
+
         Dim query As String = "insert into user (username,FirstName,LastName,address,gender,country,birthday,secQuestion,secAnswer) " + _
         "values (@user,@fname,@lname,@add,@gender,@country,@bday,@secQ,@secA)"
         Dim comm As MySqlCommand = New MySqlCommand(query, conn)
