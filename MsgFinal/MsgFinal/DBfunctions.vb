@@ -4,14 +4,21 @@ Imports System.Data.SqlClient
 Module DBfunctions
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost;Database=messengerdata;User ID=root;Password=root")
 
-    Function checkUser(ByVal text As String) As String
+    Function checkUser(ByVal text As String, ByVal caseSensitive As Boolean) As String
         Try
             conn.Open()
         Catch ex As MySqlException
             Return "ERROR"
         End Try
 
-        Dim query As String = "select * from user where username = @user"
+        Dim query As String
+        If caseSensitive = True Then
+            query = "select * from user where username = @user"
+        Else
+            query = "select * from user where binary username = @user"
+        End If
+
+
         Dim comm As MySqlCommand = New MySqlCommand(query, conn)
         comm.Parameters.AddWithValue("@user", text)
 

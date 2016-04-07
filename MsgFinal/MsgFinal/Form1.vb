@@ -16,4 +16,7 @@ Public Class Form1
         Register.Show()
     End Sub
 
+    Private Sub btnForgotPw_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnForgotPw.Click
+        ForgotPW.Show()
+    End Sub
 End Class

@@ -8,15 +8,15 @@
         Else
             If checkValidity(textbx.Text) = True Then
                 'check if username is taken
-                If checkUser(textbx.Text) = "UserAvailable" And textbx.Text.Length > 0 Then
+                If checkUser(textbx.Text, False) = "UserAvailable" And textbx.Text.Length > 0 Then
                     warn.Visible = True
                     warn.Text = "USERNAME IS AVAILABLE"
                     textbx.Tag = "Valid"
                     textbx.BackColor = Color.Lime
-                ElseIf checkUser(textbx.Text) = "UserExists" Then
+                ElseIf checkUser(textbx.Text, False) = "UserExists" Then
                     warn.Text = "USERNAME IS TAKEN, CHOOSE ANOTHER"
                     textbx.Tag = "Invalid"
-                ElseIf checkUser(textbx.Text) = "ERROR" Then
+                ElseIf checkUser(textbx.Text, False) = "ERROR" Then
                     warn.Text = "Connection to database lost"
                 End If
             Else

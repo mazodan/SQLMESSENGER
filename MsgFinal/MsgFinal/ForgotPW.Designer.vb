@@ -23,43 +23,46 @@ Partial Class ForgotPW
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.btnSubmit = New System.Windows.Forms.Button
+        Me.txtUsername = New System.Windows.Forms.TextBox
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 34)
+        Me.Label1.Location = New System.Drawing.Point(12, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(86, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Enter Username:"
         '
-        'Button1
+        'btnSubmit
         '
-        Me.Button1.Location = New System.Drawing.Point(66, 57)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSubmit.Location = New System.Drawing.Point(76, 57)
+        Me.btnSubmit.Name = "btnSubmit"
+        Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
+        Me.btnSubmit.TabIndex = 1
+        Me.btnSubmit.Text = "Submit"
+        Me.btnSubmit.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtUsername
         '
-        Me.TextBox1.Location = New System.Drawing.Point(104, 31)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.txtUsername.Location = New System.Drawing.Point(104, 19)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsername.TabIndex = 2
         '
         'ForgotPW
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(220, 92)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtUsername)
+        Me.Controls.Add(Me.btnSubmit)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ForgotPW"
         Me.Text = "ForgotPW"
         Me.ResumeLayout(False)
@@ -67,6 +70,6 @@ Partial Class ForgotPW
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents btnSubmit As System.Windows.Forms.Button
+    Friend WithEvents txtUsername As System.Windows.Forms.TextBox
 End Class

@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AES.vb" />
+    <Compile Include="ChangePW.Designer.vb">
+      <DependentUpon>ChangePW.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePW.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DBfunctions.vb" />
     <Compile Include="ForgotPW.Designer.vb">
       <DependentUpon>ForgotPW.vb</DependentUpon>
@@ -98,6 +104,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PasswordChangeFunctions.vb" />
     <Compile Include="PasswordHashing.vb" />
     <Compile Include="regexp.vb" />
     <Compile Include="Register.Designer.vb">
@@ -108,6 +115,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChangePW.resx">
+      <DependentUpon>ChangePW.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ForgotPW.resx">
       <DependentUpon>ForgotPW.vb</DependentUpon>
     </EmbeddedResource>
