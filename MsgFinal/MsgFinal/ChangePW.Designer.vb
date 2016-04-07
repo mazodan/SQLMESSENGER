@@ -126,7 +126,7 @@ Partial Class ChangePW
         Me.MinimizeBox = False
         Me.Name = "ChangePW"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ChangePW"
+        Me.Text = "Change Password"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
