@@ -64,6 +64,7 @@ Partial Class ForgotPW
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ForgotPW"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ForgotPW"
         Me.ResumeLayout(False)
         Me.PerformLayout()

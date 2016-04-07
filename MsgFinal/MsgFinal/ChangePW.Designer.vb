@@ -25,11 +25,11 @@ Partial Class ChangePW
         Me.lblUser = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.txtSQ = New System.Windows.Forms.TextBox
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.txtAns = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.btnChangePW = New System.Windows.Forms.Button
         Me.Label3 = New System.Windows.Forms.Label
-        Me.TextBox2 = New System.Windows.Forms.TextBox
+        Me.txtNPW = New System.Windows.Forms.TextBox
         Me.SuspendLayout()
         '
         'lblUser
@@ -63,13 +63,13 @@ Partial Class ChangePW
         Me.txtSQ.Size = New System.Drawing.Size(463, 52)
         Me.txtSQ.TabIndex = 3
         '
-        'TextBox1
+        'txtAns
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(96, 103)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(384, 29)
-        Me.TextBox1.TabIndex = 4
+        Me.txtAns.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.txtAns.Location = New System.Drawing.Point(96, 103)
+        Me.txtAns.Name = "txtAns"
+        Me.txtAns.Size = New System.Drawing.Size(384, 29)
+        Me.txtAns.TabIndex = 4
         '
         'Label1
         '
@@ -81,14 +81,14 @@ Partial Class ChangePW
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Answer:"
         '
-        'Button1
+        'btnChangePW
         '
-        Me.Button1.Location = New System.Drawing.Point(367, 190)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(113, 23)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Change Password"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnChangePW.Location = New System.Drawing.Point(367, 190)
+        Me.btnChangePW.Name = "btnChangePW"
+        Me.btnChangePW.Size = New System.Drawing.Size(113, 23)
+        Me.btnChangePW.TabIndex = 6
+        Me.btnChangePW.Text = "Change Password"
+        Me.btnChangePW.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -100,14 +100,14 @@ Partial Class ChangePW
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "New Password"
         '
-        'TextBox2
+        'txtNPW
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.TextBox2.Location = New System.Drawing.Point(12, 184)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(349, 29)
-        Me.TextBox2.TabIndex = 7
-        Me.TextBox2.UseSystemPasswordChar = True
+        Me.txtNPW.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.txtNPW.Location = New System.Drawing.Point(12, 184)
+        Me.txtNPW.Name = "txtNPW"
+        Me.txtNPW.Size = New System.Drawing.Size(349, 29)
+        Me.txtNPW.TabIndex = 7
+        Me.txtNPW.UseSystemPasswordChar = True
         '
         'ChangePW
         '
@@ -115,14 +115,17 @@ Partial Class ChangePW
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(492, 225)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtNPW)
+        Me.Controls.Add(Me.btnChangePW)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtAns)
         Me.Controls.Add(Me.txtSQ)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblUser)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ChangePW"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ChangePW"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -131,9 +134,9 @@ Partial Class ChangePW
     Friend WithEvents lblUser As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtSQ As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtAns As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnChangePW As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNPW As System.Windows.Forms.TextBox
 End Class
