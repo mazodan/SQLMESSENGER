@@ -25,11 +25,11 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.txtUser = New System.Windows.Forms.TextBox
         Me.btnLogin = New System.Windows.Forms.Button
         Me.btnForgotPw = New System.Windows.Forms.Button
         Me.btnRegister = New System.Windows.Forms.Button
-        Me.TextBox2 = New System.Windows.Forms.TextBox
+        Me.txtPass = New System.Windows.Forms.TextBox
         Me.SuspendLayout()
         '
         'Label1
@@ -62,13 +62,13 @@ Partial Class Form1
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Password:"
         '
-        'TextBox1
+        'txtUser
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(110, 80)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox1.TabIndex = 3
+        Me.txtUser.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUser.Location = New System.Drawing.Point(110, 80)
+        Me.txtUser.Name = "txtUser"
+        Me.txtUser.Size = New System.Drawing.Size(100, 22)
+        Me.txtUser.TabIndex = 3
         '
         'btnLogin
         '
@@ -97,25 +97,25 @@ Partial Class Form1
         Me.btnRegister.Text = "Register an Account"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'txtPass
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(110, 108)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox2.TabIndex = 8
-        Me.TextBox2.UseSystemPasswordChar = True
+        Me.txtPass.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPass.Location = New System.Drawing.Point(110, 108)
+        Me.txtPass.Name = "txtPass"
+        Me.txtPass.Size = New System.Drawing.Size(100, 22)
+        Me.txtPass.TabIndex = 8
+        Me.txtPass.UseSystemPasswordChar = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 221)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtPass)
         Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.btnForgotPw)
         Me.Controls.Add(Me.btnLogin)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtUser)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -131,10 +131,10 @@ Partial Class Form1
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtUser As System.Windows.Forms.TextBox
     Friend WithEvents btnLogin As System.Windows.Forms.Button
     Friend WithEvents btnForgotPw As System.Windows.Forms.Button
     Friend WithEvents btnRegister As System.Windows.Forms.Button
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPass As System.Windows.Forms.TextBox
 
 End Class

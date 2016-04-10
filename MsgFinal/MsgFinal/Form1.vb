@@ -4,7 +4,7 @@ Public Class Form1
     Sub rx()
         'today i learned, regex is awesome
         Dim regex As Regex = New Regex("\s")
-        Dim match As Match = regex.Match(TextBox1.Text)
+        Dim match As Match = regex.Match(txtUser.Text)
         If match.Success Then
             MessageBox.Show("you got a space in dat ass")
         Else
@@ -18,5 +18,9 @@ Public Class Form1
 
     Private Sub btnForgotPw_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnForgotPw.Click
         ForgotPW.Show()
+    End Sub
+
+    Private Sub btnLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogin.Click
+
     End Sub
 End Class
