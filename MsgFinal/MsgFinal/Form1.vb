@@ -21,6 +21,11 @@ Public Class Form1
     End Sub
 
     Private Sub btnLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogin.Click
-
+        If checkLogin(txtUser.Text, txtPass.Text) = True Then
+            MainAction.Show()
+            Me.Hide()
+        Else
+            MessageBox.Show("INVALID CREDENTIALS")
+        End If
     End Sub
 End Class

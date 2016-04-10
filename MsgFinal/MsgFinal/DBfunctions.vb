@@ -107,4 +107,85 @@ Module DBfunctions
         comm.ExecuteNonQuery()
         conn2.Close()
     End Sub
+
+    Function CheckPassword(ByVal uid As String, ByVal pass As String) As Boolean
+        Dim conn2 As MySqlConnection = New MySqlConnection("server=localhost;Database=passwords;User ID=root;Password=root")
+        conn2.Open()
+        Dim query As String = "select * from Password where UID = @uid"
+        Dim comm As MySqlCommand = New MySqlCommand(query, conn2)
+        comm.Parameters.AddWithValue("@uid", uid)
+
+        Dim adapt As MySqlDataAdapter = New MySqlDataAdapter(comm)
+        Dim dset As DataSet = New DataSet()
+
+        Try
+            adapt.Fill(dset, "user")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Dim hashedPW As String = dset.Tables(0).Rows(0).Item(1).ToString
+        Return ValidatePassword(pass, hashedPW)
+
+        conn2.Close()
+    End Function
+
+    Function checkLogin(ByVal username As String, ByVal pass As String) As Boolean
+        Dim usr_conf As Boolean
+        Dim pw_conf As Boolean
+
+        Try
+            conn.Open()
+        Catch ex As MySqlException
+            Return "ERROR"
+        End Try
+
+        Dim query As String
+        query = "select * from user where binary username = @user"
+
+        Dim comm As MySqlCommand = New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@user", username)
+
+        Dim adapt As MySqlDataAdapter = New MySqlDataAdapter(comm)
+        Dim dset As DataSet = New DataSet()
+
+        Try
+            adapt.Fill(dset, "user")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Dim rCount As Integer = dset.Tables("user").Rows.Count
+
+        If rCount = 1 Then
+            usr_conf = True
+        Else
+            Return False
+        End If
+
+        query = "select * from user where username = @User"
+        comm = New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@user", username)
+        adapt = New MySqlDataAdapter(comm)
+        dset = New DataSet()
+
+        Try
+            adapt.Fill(dset, "user")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Dim uID As String = dset.Tables(0).Rows(0).Item(0).ToString
+        conn.Close()
+
+        If CheckPassword(uID, pass) = True Then
+            pw_conf = True
+        Else
+            Return False
+        End If
+
+        If usr_conf = True And pw_conf = True Then
+            Return True
+        End If
+    End Function
 End Module
