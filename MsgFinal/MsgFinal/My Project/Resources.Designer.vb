@@ -60,9 +60,23 @@ Namespace My.Resources
             End Set
         End Property
         
+        Friend ReadOnly Property _default() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_default", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property account_card_details() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("account-card-details", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property ecMAkxdzi() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ecMAkxdzi", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

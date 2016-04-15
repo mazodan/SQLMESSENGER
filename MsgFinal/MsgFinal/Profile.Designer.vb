@@ -22,7 +22,6 @@ Partial Class Profile
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.txtFname = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
@@ -38,17 +37,9 @@ Partial Class Profile
         Me.btnEProfile = New System.Windows.Forms.Button
         Me.btnUPD = New System.Windows.Forms.Button
         Me.btnCPic = New System.Windows.Forms.Button
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pboxProfile = New System.Windows.Forms.PictureBox
+        CType(Me.pboxProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(108, 91)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'Label1
         '
@@ -185,6 +176,16 @@ Partial Class Profile
         Me.btnCPic.Text = "Change Photo"
         Me.btnCPic.UseVisualStyleBackColor = True
         '
+        'pboxProfile
+        '
+        Me.pboxProfile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pboxProfile.Location = New System.Drawing.Point(12, 12)
+        Me.pboxProfile.Name = "pboxProfile"
+        Me.pboxProfile.Size = New System.Drawing.Size(108, 91)
+        Me.pboxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pboxProfile.TabIndex = 0
+        Me.pboxProfile.TabStop = False
+        '
         'Profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -205,19 +206,19 @@ Partial Class Profile
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtFname)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pboxProfile)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Profile"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Profile"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pboxProfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents pboxProfile As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtFname As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label

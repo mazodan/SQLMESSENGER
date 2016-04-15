@@ -22,6 +22,7 @@ Public Class Form1
 
     Private Sub btnLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogin.Click
         If checkLogin(txtUser.Text, txtPass.Text) = True Then
+            CurUser = txtUser.Text
             MainAction.Show()
             Me.Hide()
         Else

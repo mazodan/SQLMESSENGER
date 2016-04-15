@@ -2,6 +2,7 @@
 Imports System.Data.SqlClient
 
 Module DBfunctions
+    Public CurUser As String
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost;Database=messengerdata;User ID=root;Password=root")
 
     Function checkUser(ByVal text As String, ByVal caseSensitive As Boolean) As String
@@ -51,8 +52,13 @@ Module DBfunctions
 
         sa = Encrypt(sa, user)
 
-        Dim query As String = "insert into user (username,FirstName,LastName,address,gender,country,birthday,secQuestion,secAnswer) " + _
-        "values (@user,@fname,@lname,@add,@gender,@country,@bday,@secQ,@secA)"
+        Dim mstream As New System.IO.MemoryStream
+        My.Resources._default.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+        Dim arrImage() As Byte = mstream.GetBuffer()
+        mstream.Close()
+
+        Dim query As String = "insert into user (username,FirstName,LastName,address,gender,country,birthday,secQuestion,secAnswer,photo) " + _
+        "values (@user,@fname,@lname,@add,@gender,@country,@bday,@secQ,@secA,@photo)"
         Dim comm As MySqlCommand = New MySqlCommand(query, conn)
         comm.Parameters.AddWithValue("@user", user)
         comm.Parameters.AddWithValue("@fname", fname)
@@ -65,7 +71,7 @@ Module DBfunctions
 
         comm.Parameters.AddWithValue("@secQ", sq)
         comm.Parameters.AddWithValue("@secA", sa)
-
+        comm.Parameters.AddWithValue("@photo", arrImage)
 
         Try
             comm.ExecuteNonQuery()
