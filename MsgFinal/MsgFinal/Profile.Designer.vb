@@ -38,6 +38,7 @@ Partial Class Profile
         Me.btnUPD = New System.Windows.Forms.Button
         Me.btnCPic = New System.Windows.Forms.Button
         Me.pboxProfile = New System.Windows.Forms.PictureBox
+        Me.OFD = New System.Windows.Forms.OpenFileDialog
         CType(Me.pboxProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -186,6 +187,10 @@ Partial Class Profile
         Me.pboxProfile.TabIndex = 0
         Me.pboxProfile.TabStop = False
         '
+        'OFD
+        '
+        Me.OFD.Filter = "Jpeg Image|*.jpg|PNG image|*.png"
+        '
         'Profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -234,4 +239,5 @@ Partial Class Profile
     Friend WithEvents btnEProfile As System.Windows.Forms.Button
     Friend WithEvents btnUPD As System.Windows.Forms.Button
     Friend WithEvents btnCPic As System.Windows.Forms.Button
+    Friend WithEvents OFD As System.Windows.Forms.OpenFileDialog
 End Class

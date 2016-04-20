@@ -55,4 +55,19 @@ Module ProfileModule
         MessageBox.Show("Profile is updated")
         conn.Close()
     End Sub
+
+    Sub insertImage(ByVal pics As PictureBox)
+        Dim mstream As New System.IO.MemoryStream
+        pics.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+        Dim arrImage() As Byte = mstream.GetBuffer()
+        mstream.Close()
+
+        conn.Open()
+        Dim query As String = "update user set photo=@photo where username='" & CurUser & "'"
+        Dim com As New MySqlCommand(query, conn)
+        com.Parameters.AddWithValue("@photo", arrImage)
+        com.ExecuteNonQuery()
+        conn.Close()
+        MessageBox.Show("Profile Photo is updated")
+    End Sub
 End Module

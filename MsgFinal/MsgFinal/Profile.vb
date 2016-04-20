@@ -47,4 +47,13 @@
             End If
         Next
     End Sub
+
+    Private Sub btnCPic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCPic.Click
+        If MessageBox.Show("Do you want to change your Profile Photo", "Profile Photo Change", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+            If OFD.ShowDialog = Windows.Forms.DialogResult.OK Then
+                pboxProfile.Image = New Bitmap(OFD.FileName)
+                insertImage(pboxProfile)
+            End If
+        End If
+    End Sub
 End Class

@@ -26,19 +26,4 @@ Public Class MainAction
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim mstream As New System.IO.MemoryStream
-        PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
-        Dim arrImage() As Byte = mstream.GetBuffer()
-        mstream.Close()
-
-        Dim conn As New MySqlConnection("server=localhost;Database=messengerdata;User ID=root;Password=root")
-        conn.Open()
-        Dim query As String = "update user set photo=@photo where username='mazodan'"
-        Dim com As New MySqlCommand(query, conn)
-        com.Parameters.AddWithValue("@photo", arrImage)
-        com.ExecuteNonQuery()
-        conn.Close()
-        MessageBox.Show("check sql if image inserted")
-    End Sub
 End Class
