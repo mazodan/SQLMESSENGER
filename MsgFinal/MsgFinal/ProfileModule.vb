@@ -4,10 +4,11 @@ Imports System.Data.SqlClient
 
 Module ProfileModule
     
+    Dim conn As New MySqlConnection("server=localhost;Database=messengerdata;User ID=root;Password=root")
 
     Sub LoadProfileData(ByVal fname As TextBox, ByVal lname As TextBox, ByVal address As TextBox, ByVal gender As ComboBox, _
                         ByVal country As TextBox, ByVal bday As DateTimePicker, ByVal pics As PictureBox)
-        Dim conn As New MySqlConnection("server=localhost;Database=messengerdata;User ID=root;Password=root")
+
         conn.Open()
         Dim query As String = "select * from user where username='" & CurUser & "'"
 
@@ -28,6 +29,30 @@ Module ProfileModule
             pics.Image = Image.FromStream(ms)
             ms.Close()
         End If
+        conn.Close()
 
+    End Sub
+
+    Sub updateProfile(ByVal fname As TextBox, ByVal lname As TextBox, ByVal address As TextBox, ByVal gender As ComboBox, _
+                        ByVal country As TextBox, ByVal bday As DateTimePicker)
+        conn.Open()
+        Dim query As String = "update user set FirstName=@fname,LastName=@lname,address=@add,gender=@gender,country=@ctry,birthday=@bday where username='" & CurUser & "'"
+        Dim comm As New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@fname", fname.Text)
+        comm.Parameters.AddWithValue("@lname", lname.Text)
+        comm.Parameters.AddWithValue("@add", address.Text)
+        comm.Parameters.AddWithValue("@gender", gender.Text)
+        comm.Parameters.AddWithValue("@ctry", country.Text)
+        comm.Parameters.Add("@bday", Convert.ToString(bday.Value.Date)).MySqlDbType = MySqlDbType.Date
+
+        Try
+            comm.ExecuteNonQuery()
+        Catch ex As MySqlException
+            MessageBox.Show(ex.Message)
+            Return
+        End Try
+
+        MessageBox.Show("Profile is updated")
+        conn.Close()
     End Sub
 End Module
