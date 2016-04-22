@@ -10,6 +10,10 @@ Public Class MainAction
         ttProfile.Show("This contains your user information", btnProfile)
     End Sub
 
+    Private Sub btnFriend_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFriend.MouseHover
+        ttFriend.Show("This contains your Friend List", btnFriend)
+    End Sub
+
     Private Sub btnProfile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnProfile.Click
         Profile.ShowDialog()
     End Sub
@@ -26,4 +30,8 @@ Public Class MainAction
         End If
     End Sub
 
+    
+    Private Sub btnFriend_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFriend.Click
+        FriendList.ShowDialog()
+    End Sub
 End Class

@@ -1,0 +1,3 @@
+﻿Module FriendFunctions
+
+End Module
