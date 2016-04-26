@@ -95,6 +95,12 @@
     <Compile Include="FriendList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FriendSearch.Designer.vb">
+      <DependentUpon>FriendSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FriendSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LoginFunctions.vb" />
     <Compile Include="MainAction.Designer.vb">
       <DependentUpon>MainAction.vb</DependentUpon>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FriendList.resx">
       <DependentUpon>FriendList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FriendSearch.resx">
+      <DependentUpon>FriendSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainAction.resx">
       <DependentUpon>MainAction.vb</DependentUpon>

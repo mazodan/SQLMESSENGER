@@ -80,21 +80,10 @@ Module DBfunctions
             Return
         End Try
         'retrival of userID
-        query = "select * from user where username = @User"
-        comm = New MySqlCommand(query, conn)
-        comm.Parameters.AddWithValue("@user", user)
-        Dim adapt As MySqlDataAdapter = New MySqlDataAdapter(comm)
-        Dim dset As DataSet = New DataSet()
-
-        Try
-            adapt.Fill(dset, "user")
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-
-        Dim uID As String = dset.Tables(0).Rows(0).Item(0).ToString
-
         conn.Close()
+
+        Dim uID As String = getUsrID(user)
+
         'Inserting the password in another database for security
         InsertPasswordData(uID, pw)
 
@@ -194,4 +183,37 @@ Module DBfunctions
             Return True
         End If
     End Function
+
+    Function getUsrID(ByVal username As String) As String
+        conn.Open()
+        Dim comm As MySqlCommand
+
+        Dim query As String = "select * from user where username = @User"
+        comm = New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@user", username)
+        Dim adapt As MySqlDataAdapter = New MySqlDataAdapter(comm)
+        Dim dset As DataSet = New DataSet()
+
+        Try
+            adapt.Fill(dset, "user")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        conn.Close()
+        Return dset.Tables(0).Rows(0).Item(0).ToString
+    End Function
+
+    Sub Fsearch(ByVal fr As String, ByVal dgv As DataGridView)
+        Dim query As String = "SELECT username FROM user WHERE username LIKE @param"
+        Dim sTerm As String = String.Format("%{0}%", fr)
+        conn.Open()
+        Dim comm As New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@param", sTerm)
+
+        Dim adpt As New MySqlDataAdapter(comm)
+        Dim dset As New DataSet()
+        adpt.Fill(dset, "user")
+        dgv.DataSource = dset.Tables("user").DefaultView
+        conn.Close()
+    End Sub
 End Module

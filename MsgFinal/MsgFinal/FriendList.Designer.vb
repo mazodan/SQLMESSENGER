@@ -23,7 +23,7 @@ Partial Class FriendList
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
+        Me.lblFrCount = New System.Windows.Forms.Label
         Me.lstVwFriends = New System.Windows.Forms.ListView
         Me.btnRemove = New System.Windows.Forms.Button
         Me.btnAdd = New System.Windows.Forms.Button
@@ -39,16 +39,16 @@ Partial Class FriendList
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Friend List"
         '
-        'Label2
+        'lblFrCount
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Lime
-        Me.Label2.Location = New System.Drawing.Point(12, 39)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(193, 25)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "You have X Friend(s)"
+        Me.lblFrCount.AutoSize = True
+        Me.lblFrCount.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFrCount.ForeColor = System.Drawing.Color.Lime
+        Me.lblFrCount.Location = New System.Drawing.Point(12, 39)
+        Me.lblFrCount.Name = "lblFrCount"
+        Me.lblFrCount.Size = New System.Drawing.Size(193, 25)
+        Me.lblFrCount.TabIndex = 3
+        Me.lblFrCount.Text = "You have X Friend(s)"
         '
         'lstVwFriends
         '
@@ -88,7 +88,7 @@ Partial Class FriendList
         Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.lstVwFriends)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblFrCount)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FriendList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -98,7 +98,7 @@ Partial Class FriendList
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lblFrCount As System.Windows.Forms.Label
     Friend WithEvents lstVwFriends As System.Windows.Forms.ListView
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents btnRemove As System.Windows.Forms.Button
