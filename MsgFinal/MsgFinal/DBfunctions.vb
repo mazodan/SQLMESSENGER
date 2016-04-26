@@ -204,7 +204,7 @@ Module DBfunctions
     End Function
 
     Sub Fsearch(ByVal fr As String, ByVal dgv As DataGridView)
-        Dim query As String = "SELECT username FROM user WHERE username LIKE @param"
+        Dim query As String = "SELECT username FROM user WHERE username LIKE @param LIMIT 20"
         Dim sTerm As String = String.Format("%{0}%", fr)
         conn.Open()
         Dim comm As New MySqlCommand(query, conn)
