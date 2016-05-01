@@ -5,7 +5,7 @@ Module DBfunctions
     Public CurUser As String
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost;Database=messengerdata;User ID=root;Password=root")
 
-    Function checkUser(ByVal text As String, ByVal caseSensitive As Boolean) As String
+    Function checkUser(ByVal text As String, ByVal caseInsensitive As Boolean) As String
         Try
             conn.Open()
         Catch ex As MySqlException
@@ -13,7 +13,7 @@ Module DBfunctions
         End Try
 
         Dim query As String
-        If caseSensitive = True Then
+        If caseInsensitive = True Then
             query = "select * from user where username = @user"
         Else
             query = "select * from user where binary username = @user"
@@ -132,6 +132,7 @@ Module DBfunctions
         Try
             conn.Open()
         Catch ex As MySqlException
+            conn.Close()
             Return "ERROR"
         End Try
 
@@ -155,6 +156,7 @@ Module DBfunctions
         If rCount = 1 Then
             usr_conf = True
         Else
+            conn.Close()
             Return False
         End If
 
@@ -176,10 +178,12 @@ Module DBfunctions
         If CheckPassword(uID, pass) = True Then
             pw_conf = True
         Else
+            conn.Close()
             Return False
         End If
 
         If usr_conf = True And pw_conf = True Then
+            conn.Close()
             Return True
         End If
     End Function
@@ -203,6 +207,27 @@ Module DBfunctions
         Return dset.Tables(0).Rows(0).Item(0).ToString
     End Function
 
+    Function getUsernameFromID(ByVal ID As String) As String
+        conn.Open()
+        Dim comm As MySqlCommand
+
+        Dim query As String = "select username from user where userID = @ID"
+        comm = New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@ID", ID)
+        Dim adapt As MySqlDataAdapter = New MySqlDataAdapter(comm)
+        Dim dset As DataSet = New DataSet()
+
+        Try
+            adapt.Fill(dset, "user")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        conn.Close()
+        Return dset.Tables(0).Rows(0).Item(0).ToString
+    End Function
+
+
+
     Sub Fsearch(ByVal fr As String, ByVal dgv As DataGridView)
         Dim query As String = "SELECT username FROM user WHERE username LIKE @param LIMIT 20"
         Dim sTerm As String = String.Format("%{0}%", fr)
@@ -216,4 +241,6 @@ Module DBfunctions
         dgv.DataSource = dset.Tables("user").DefaultView
         conn.Close()
     End Sub
+
+
 End Module
