@@ -96,6 +96,12 @@
     <Compile Include="FriendList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FriendRequests.Designer.vb">
+      <DependentUpon>FriendRequests.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FriendRequests.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FriendSearch.Designer.vb">
       <DependentUpon>FriendSearch.vb</DependentUpon>
     </Compile>
@@ -154,6 +160,9 @@
     <EmbeddedResource Include="FriendList.resx">
       <DependentUpon>FriendList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FriendRequests.resx">
+      <DependentUpon>FriendRequests.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FriendSearch.resx">
       <DependentUpon>FriendSearch.vb</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\account-remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-alert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -32,6 +32,25 @@ Public Class MainAction
 
     
     Private Sub btnFriend_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFriend.Click
-        FriendList.ShowDialog()
+        FriendList.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnFreq_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFreq.MouseHover
+        ttFreq.Show("Your friend requests", btnFreq)
+    End Sub
+
+    Private Sub btnFreq_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFreq.Click
+        FriendRequests.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub MainAction_VisibleChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.VisibleChanged
+        notifyRequest(lvNotify, btnFreq)
+    End Sub
+
+    Private Sub MainAction_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        lvNotify.View = View.Details
+        lvNotify.Columns.Add("Notifications", 350)
     End Sub
 End Class

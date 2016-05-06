@@ -23,24 +23,15 @@ Partial Class MainAction
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.ListBox1 = New System.Windows.Forms.ListBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.ttProfile = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ttFriend = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ttFreq = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnFreq = New System.Windows.Forms.Button
         Me.btnFriend = New System.Windows.Forms.Button
         Me.btnProfile = New System.Windows.Forms.Button
-        Me.ttFriend = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lvNotify = New System.Windows.Forms.ListView
         Me.SuspendLayout()
-        '
-        'ListBox1
-        '
-        Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 17
-        Me.ListBox1.Items.AddRange(New Object() {"You Have 2 unread messages", "you have 10 friend requests", "You are now friends with xxxseglordszzz"})
-        Me.ListBox1.Location = New System.Drawing.Point(198, 75)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(356, 174)
-        Me.ListBox1.TabIndex = 0
         '
         'Label1
         '
@@ -55,6 +46,24 @@ Partial Class MainAction
         'ttProfile
         '
         Me.ttProfile.ToolTipTitle = "Profile"
+        '
+        'ttFriend
+        '
+        Me.ttFriend.ToolTipTitle = "Friend"
+        '
+        'ttFreq
+        '
+        Me.ttFreq.ToolTipTitle = "Friend Request"
+        '
+        'btnFreq
+        '
+        Me.btnFreq.BackgroundImage = Global.MsgFinal.My.Resources.Resources.account_alert
+        Me.btnFreq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnFreq.Location = New System.Drawing.Point(404, 12)
+        Me.btnFreq.Name = "btnFreq"
+        Me.btnFreq.Size = New System.Drawing.Size(46, 44)
+        Me.btnFreq.TabIndex = 4
+        Me.btnFreq.UseVisualStyleBackColor = True
         '
         'btnFriend
         '
@@ -76,19 +85,26 @@ Partial Class MainAction
         Me.btnProfile.TabIndex = 2
         Me.btnProfile.UseVisualStyleBackColor = True
         '
-        'ttFriend
+        'lvNotify
         '
-        Me.ttFriend.ToolTipTitle = "Friend"
+        Me.lvNotify.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lvNotify.Location = New System.Drawing.Point(198, 75)
+        Me.lvNotify.Name = "lvNotify"
+        Me.lvNotify.Size = New System.Drawing.Size(356, 179)
+        Me.lvNotify.TabIndex = 5
+        Me.lvNotify.UseCompatibleStateImageBehavior = False
+        Me.lvNotify.View = System.Windows.Forms.View.Details
         '
         'MainAction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(566, 266)
+        Me.Controls.Add(Me.lvNotify)
+        Me.Controls.Add(Me.btnFreq)
         Me.Controls.Add(Me.btnFriend)
         Me.Controls.Add(Me.btnProfile)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ListBox1)
         Me.Name = "MainAction"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MainAction"
@@ -96,10 +112,12 @@ Partial Class MainAction
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnProfile As System.Windows.Forms.Button
     Friend WithEvents ttProfile As System.Windows.Forms.ToolTip
     Friend WithEvents btnFriend As System.Windows.Forms.Button
     Friend WithEvents ttFriend As System.Windows.Forms.ToolTip
+    Friend WithEvents btnFreq As System.Windows.Forms.Button
+    Friend WithEvents ttFreq As System.Windows.Forms.ToolTip
+    Friend WithEvents lvNotify As System.Windows.Forms.ListView
 End Class
