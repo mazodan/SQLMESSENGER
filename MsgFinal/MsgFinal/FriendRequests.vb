@@ -1,5 +1,5 @@
 ﻿Public Class FriendRequests
-
+    Dim sortColumn As Integer = -1
     Dim selectedUser As String = ""
 
     Private Sub FriendRequests_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -17,6 +17,7 @@
         If selectedUser <> "" Then
             ConfirmFReq(getUsrID(selectedUser))
             PlaceFriendRequestshere(lstVwFriendREQ)
+            selectedUser = ""
         End If
     End Sub
 
@@ -24,6 +25,19 @@
         'selectedUser = lstVwFriendREQ.SelectedItems(lstVwFriendREQ.SelectedIndices.ToString).Text
         If lstVwFriendREQ.SelectedItems.Count > 0 Then
             selectedUser = lstVwFriendREQ.FocusedItem.Text
+        End If
+    End Sub
+
+    Private Sub lstVwFriendREQ_ColumnClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ColumnClickEventArgs) Handles lstVwFriendREQ.ColumnClick
+        If e.Column <> sortColumn Then
+            sortColumn = e.Column
+            lstVwFriendREQ.Sorting = SortOrder.Ascending
+        Else
+            If lstVwFriendREQ.Sorting = SortOrder.Ascending Then
+                lstVwFriendREQ.Sorting = SortOrder.Descending
+            Else
+                lstVwFriendREQ.Sorting = SortOrder.Ascending
+            End If
         End If
     End Sub
 End Class

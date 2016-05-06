@@ -16,6 +16,7 @@ Module FriendFunctions
         conn.Close()
 
         ntfc.Items.Clear()
+        alertbtn.UseVisualStyleBackColor = True
 
         For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
             Dim lvi As New ListViewItem()
