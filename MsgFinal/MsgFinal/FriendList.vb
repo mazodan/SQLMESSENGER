@@ -1,8 +1,14 @@
 ﻿Public Class FriendList
     Dim sortColumn As Integer = -1
+    Dim selectedUser As String = ""
 
     Private Sub FriendList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         lstVwFriends.Columns.Add("Username", 175)
+        LoadFriends()
+    End Sub
+
+    Sub LoadFriends()
+        lstVwFriends.Items.Clear()
         For Each x As String In getFriendsToList(getUsrID(CurUser))
             Dim lvi As New ListViewItem()
             lvi.Text = x
@@ -30,6 +36,26 @@
             Else
                 lstVwFriends.Sorting = SortOrder.Ascending
             End If
+        End If
+    End Sub
+
+    Private Sub btnRemove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemove.Click
+        If selectedUser <> "" Then
+            RemoveFriend(getUsrID(selectedUser))
+            LoadFriends()
+            MessageBox.Show("You are not friends with " + selectedUser + " anymore")
+            selectedUser = ""
+        End If
+    End Sub
+
+    Private Sub lstVwFriends_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstVwFriends.SelectedIndexChanged
+        If lstVwFriends.SelectedItems.Count > 0 Then
+            Try
+                selectedUser = lstVwFriends.FocusedItem.Text
+            Catch ex As Exception
+                'THIS EVENT CONSIDERS SORTING AS INDEX CHANGE, SELECTION WILL REMAIN THE SAME THOUGH
+                Return
+            End Try
         End If
     End Sub
 End Class
