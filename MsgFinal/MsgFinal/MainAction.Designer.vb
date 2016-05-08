@@ -27,10 +27,12 @@ Partial Class MainAction
         Me.ttProfile = New System.Windows.Forms.ToolTip(Me.components)
         Me.ttFriend = New System.Windows.Forms.ToolTip(Me.components)
         Me.ttFreq = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lvNotify = New System.Windows.Forms.ListView
+        Me.btnCompose = New System.Windows.Forms.Button
         Me.btnFreq = New System.Windows.Forms.Button
         Me.btnFriend = New System.Windows.Forms.Button
         Me.btnProfile = New System.Windows.Forms.Button
-        Me.lvNotify = New System.Windows.Forms.ListView
+        Me.ttComp = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -54,6 +56,26 @@ Partial Class MainAction
         'ttFreq
         '
         Me.ttFreq.ToolTipTitle = "Friend Request"
+        '
+        'lvNotify
+        '
+        Me.lvNotify.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lvNotify.Location = New System.Drawing.Point(198, 75)
+        Me.lvNotify.Name = "lvNotify"
+        Me.lvNotify.Size = New System.Drawing.Size(356, 179)
+        Me.lvNotify.TabIndex = 5
+        Me.lvNotify.UseCompatibleStateImageBehavior = False
+        Me.lvNotify.View = System.Windows.Forms.View.Details
+        '
+        'btnCompose
+        '
+        Me.btnCompose.BackgroundImage = Global.MsgFinal.My.Resources.Resources.comment_plus_outline
+        Me.btnCompose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCompose.Location = New System.Drawing.Point(12, 12)
+        Me.btnCompose.Name = "btnCompose"
+        Me.btnCompose.Size = New System.Drawing.Size(46, 44)
+        Me.btnCompose.TabIndex = 6
+        Me.btnCompose.UseVisualStyleBackColor = True
         '
         'btnFreq
         '
@@ -85,21 +107,16 @@ Partial Class MainAction
         Me.btnProfile.TabIndex = 2
         Me.btnProfile.UseVisualStyleBackColor = True
         '
-        'lvNotify
+        'ttComp
         '
-        Me.lvNotify.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lvNotify.Location = New System.Drawing.Point(198, 75)
-        Me.lvNotify.Name = "lvNotify"
-        Me.lvNotify.Size = New System.Drawing.Size(356, 179)
-        Me.lvNotify.TabIndex = 5
-        Me.lvNotify.UseCompatibleStateImageBehavior = False
-        Me.lvNotify.View = System.Windows.Forms.View.Details
+        Me.ttComp.ToolTipTitle = "Compose"
         '
         'MainAction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(566, 266)
+        Me.Controls.Add(Me.btnCompose)
         Me.Controls.Add(Me.lvNotify)
         Me.Controls.Add(Me.btnFreq)
         Me.Controls.Add(Me.btnFriend)
@@ -120,4 +137,6 @@ Partial Class MainAction
     Friend WithEvents btnFreq As System.Windows.Forms.Button
     Friend WithEvents ttFreq As System.Windows.Forms.ToolTip
     Friend WithEvents lvNotify As System.Windows.Forms.ListView
+    Friend WithEvents btnCompose As System.Windows.Forms.Button
+    Friend WithEvents ttComp As System.Windows.Forms.ToolTip
 End Class

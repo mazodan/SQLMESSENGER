@@ -53,4 +53,18 @@ Public Class MainAction
         lvNotify.View = View.Details
         lvNotify.Columns.Add("Notifications", 350)
     End Sub
+
+    Private Sub btnCompose_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCompose.MouseHover
+        ttComp.Show("Compose a New Message", btnCompose)
+    End Sub
+
+    Private Sub btnCompose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCompose.Click
+        Dim flist As New List(Of String)
+        flist = getFriendsToList(getUsrID(CurUser))
+        If flist.Count > 0 Then
+            Compose.ShowDialog()
+        Else
+            MessageBox.Show("You have no friends, go get some")
+        End If
+    End Sub
 End Class

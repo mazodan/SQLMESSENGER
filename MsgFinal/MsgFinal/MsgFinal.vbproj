@@ -74,6 +74,12 @@
     <Compile Include="ChangePW.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Compose.Designer.vb">
+      <DependentUpon>Compose.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compose.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DBfunctions.vb" />
     <Compile Include="ForgotPW.Designer.vb">
       <DependentUpon>ForgotPW.vb</DependentUpon>
@@ -108,6 +114,7 @@
     <Compile Include="FriendSearch.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="justifyModule.vb" />
     <Compile Include="LoginFunctions.vb" />
     <Compile Include="MainAction.Designer.vb">
       <DependentUpon>MainAction.vb</DependentUpon>
@@ -150,6 +157,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ChangePW.resx">
       <DependentUpon>ChangePW.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compose.resx">
+      <DependentUpon>Compose.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPW.resx">
       <DependentUpon>ForgotPW.vb</DependentUpon>
@@ -213,6 +223,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\account-alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment-plus-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-cut-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_select_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alignment-27939_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_design_color_wheel.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
