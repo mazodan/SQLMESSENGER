@@ -67,4 +67,22 @@ Public Class MainAction
             MessageBox.Show("You have no friends, go get some")
         End If
     End Sub
+
+
+    'Private Function CpuID() As String
+    '    ' Get the Windows Management Instrumentation object.
+    '    Dim wmi As Object = GetObject("WinMgmts:")
+
+    '    ' Get the "base boards" (mother boards).
+    '    Dim serial_numbers As String = ""
+    '    Dim mother_boards As Object = _
+    '        wmi.InstancesOf("Win32_BaseBoard")
+    '    For Each board As Object In mother_boards
+    '        serial_numbers &= ", " & board.SerialNumber
+    '    Next board
+    '    If serial_numbers.Length > 0 Then serial_numbers = _
+    '        serial_numbers.Substring(2)
+
+    '    Return serial_numbers
+    'End Function
 End Class

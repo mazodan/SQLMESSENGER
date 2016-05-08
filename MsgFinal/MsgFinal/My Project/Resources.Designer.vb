@@ -137,6 +137,20 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property delete_forever() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("delete-forever", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property delete_forever1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("delete-forever1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property ecMAkxdzi() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("ecMAkxdzi", resourceCulture)
@@ -158,6 +172,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property inbox() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("inbox", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property logo_design_color_wheel() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("logo_design_color_wheel", resourceCulture)
@@ -165,9 +186,30 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property outbox() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("outbox", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property paste() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("paste", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property reply() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("reply", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property transfer() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("transfer", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

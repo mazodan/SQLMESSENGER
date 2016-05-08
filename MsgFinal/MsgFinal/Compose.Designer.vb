@@ -47,9 +47,9 @@ Partial Class Compose
         Me.btnRight = New System.Windows.Forms.ToolStripButton
         Me.btnPic = New System.Windows.Forms.ToolStripButton
         Me.btnColor = New System.Windows.Forms.ToolStripButton
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.pbPhoto = New System.Windows.Forms.PictureBox
         Me.tsMain.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbPhoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbFriends
@@ -265,20 +265,21 @@ Partial Class Compose
         Me.btnColor.Size = New System.Drawing.Size(23, 22)
         Me.btnColor.ToolTipText = "Paint"
         '
-        'PictureBox1
+        'pbPhoto
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(677, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(75, 71)
-        Me.PictureBox1.TabIndex = 6
-        Me.PictureBox1.TabStop = False
+        Me.pbPhoto.Location = New System.Drawing.Point(677, 12)
+        Me.pbPhoto.Name = "pbPhoto"
+        Me.pbPhoto.Size = New System.Drawing.Size(75, 71)
+        Me.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbPhoto.TabIndex = 6
+        Me.pbPhoto.TabStop = False
         '
         'Compose
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(764, 424)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pbPhoto)
         Me.Controls.Add(Me.tsMain)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
@@ -290,7 +291,7 @@ Partial Class Compose
         Me.Text = "Compose"
         Me.tsMain.ResumeLayout(False)
         Me.tsMain.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbPhoto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -319,5 +320,5 @@ Partial Class Compose
     Friend WithEvents btnColor As System.Windows.Forms.ToolStripButton
     Friend WithEvents btnPic As System.Windows.Forms.ToolStripButton
     Friend WithEvents ofd As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents pbPhoto As System.Windows.Forms.PictureBox
 End Class

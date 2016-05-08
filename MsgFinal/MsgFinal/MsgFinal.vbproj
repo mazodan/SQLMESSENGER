@@ -122,6 +122,12 @@
     <Compile Include="MainAction.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MessageList.Designer.vb">
+      <DependentUpon>MessageList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MessageList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainAction.resx">
       <DependentUpon>MainAction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageList.resx">
+      <DependentUpon>MessageList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -250,6 +259,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_design_color_wheel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-forever.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-forever1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transfer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

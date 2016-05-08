@@ -28,11 +28,13 @@ Partial Class MainAction
         Me.ttFriend = New System.Windows.Forms.ToolTip(Me.components)
         Me.ttFreq = New System.Windows.Forms.ToolTip(Me.components)
         Me.lvNotify = New System.Windows.Forms.ListView
+        Me.ttComp = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button
+        Me.Button1 = New System.Windows.Forms.Button
         Me.btnCompose = New System.Windows.Forms.Button
         Me.btnFreq = New System.Windows.Forms.Button
         Me.btnFriend = New System.Windows.Forms.Button
         Me.btnProfile = New System.Windows.Forms.Button
-        Me.ttComp = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -66,6 +68,30 @@ Partial Class MainAction
         Me.lvNotify.TabIndex = 5
         Me.lvNotify.UseCompatibleStateImageBehavior = False
         Me.lvNotify.View = System.Windows.Forms.View.Details
+        '
+        'ttComp
+        '
+        Me.ttComp.ToolTipTitle = "Compose"
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = Global.MsgFinal.My.Resources.Resources.outbox
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.Location = New System.Drawing.Point(116, 12)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(46, 44)
+        Me.Button2.TabIndex = 8
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = Global.MsgFinal.My.Resources.Resources.inbox
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.Location = New System.Drawing.Point(64, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(46, 44)
+        Me.Button1.TabIndex = 7
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'btnCompose
         '
@@ -107,15 +133,13 @@ Partial Class MainAction
         Me.btnProfile.TabIndex = 2
         Me.btnProfile.UseVisualStyleBackColor = True
         '
-        'ttComp
-        '
-        Me.ttComp.ToolTipTitle = "Compose"
-        '
         'MainAction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(566, 266)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnCompose)
         Me.Controls.Add(Me.lvNotify)
         Me.Controls.Add(Me.btnFreq)
@@ -139,4 +163,6 @@ Partial Class MainAction
     Friend WithEvents lvNotify As System.Windows.Forms.ListView
     Friend WithEvents btnCompose As System.Windows.Forms.Button
     Friend WithEvents ttComp As System.Windows.Forms.ToolTip
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

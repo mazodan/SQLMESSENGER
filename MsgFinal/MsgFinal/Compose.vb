@@ -145,4 +145,20 @@ Public Class Compose
             rtfMessage.Paste()
         End If
     End Sub
+
+    Private Sub cmbFriends_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbFriends.SelectedIndexChanged
+        conn.Open()
+        Dim query As String = "select * from user where username='" & cmbFriends.Text & "'"
+        Dim com As New MySqlCommand(query, conn)
+        Dim dr As MySqlDataReader = com.ExecuteReader
+
+        If Not dr Is Nothing Then
+            dr.Read()
+            Dim data As Byte() = DirectCast(dr("photo"), Byte())
+            Dim ms As New System.IO.MemoryStream(data)
+            pbPhoto.Image = Image.FromStream(ms)
+            ms.Close()
+        End If
+        conn.Close()
+    End Sub
 End Class
