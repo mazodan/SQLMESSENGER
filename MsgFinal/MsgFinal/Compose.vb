@@ -10,6 +10,7 @@ Public Class Compose
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSend.Click
         If cmbFont.Text <> "" Or txtSubject.Text.Length > 0 Then
             sendMessage(txtSubject.Text, cmbFriends.Text, rtfMessage)
+            Me.Close()
         End If
     End Sub
 

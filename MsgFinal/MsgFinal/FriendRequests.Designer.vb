@@ -90,9 +90,12 @@ Partial Class FriendRequests
         Me.Controls.Add(Me.lstVwFriendREQ)
         Me.Controls.Add(Me.lblFrCount)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FriendRequests"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FriendRequests"
+        Me.Text = "Friend Requests"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

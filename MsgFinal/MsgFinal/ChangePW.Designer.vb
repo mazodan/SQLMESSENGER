@@ -122,6 +122,7 @@ Partial Class ChangePW
         Me.Controls.Add(Me.txtSQ)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblUser)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ChangePW"

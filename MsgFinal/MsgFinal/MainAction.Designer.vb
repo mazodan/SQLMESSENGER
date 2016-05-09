@@ -29,7 +29,8 @@ Partial Class MainAction
         Me.ttFreq = New System.Windows.Forms.ToolTip(Me.components)
         Me.lvNotify = New System.Windows.Forms.ListView
         Me.ttComp = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button
+        Me.btnSignOut = New System.Windows.Forms.Button
+        Me.btnOutput = New System.Windows.Forms.Button
         Me.btnInbox = New System.Windows.Forms.Button
         Me.btnCompose = New System.Windows.Forms.Button
         Me.btnFreq = New System.Windows.Forms.Button
@@ -41,7 +42,7 @@ Partial Class MainAction
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(216, 42)
+        Me.Label1.Location = New System.Drawing.Point(73, 26)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(141, 30)
         Me.Label1.TabIndex = 1
@@ -62,7 +63,7 @@ Partial Class MainAction
         'lvNotify
         '
         Me.lvNotify.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lvNotify.Location = New System.Drawing.Point(198, 75)
+        Me.lvNotify.Location = New System.Drawing.Point(64, 75)
         Me.lvNotify.Name = "lvNotify"
         Me.lvNotify.Size = New System.Drawing.Size(356, 179)
         Me.lvNotify.TabIndex = 5
@@ -73,21 +74,31 @@ Partial Class MainAction
         '
         Me.ttComp.ToolTipTitle = "Compose"
         '
-        'Button2
+        'btnSignOut
         '
-        Me.Button2.BackgroundImage = Global.MsgFinal.My.Resources.Resources.outbox
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.Location = New System.Drawing.Point(116, 12)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(46, 44)
-        Me.Button2.TabIndex = 8
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnSignOut.BackgroundImage = Global.MsgFinal.My.Resources.Resources.power
+        Me.btnSignOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSignOut.Location = New System.Drawing.Point(376, 12)
+        Me.btnSignOut.Name = "btnSignOut"
+        Me.btnSignOut.Size = New System.Drawing.Size(46, 44)
+        Me.btnSignOut.TabIndex = 9
+        Me.btnSignOut.UseVisualStyleBackColor = True
+        '
+        'btnOutput
+        '
+        Me.btnOutput.BackgroundImage = Global.MsgFinal.My.Resources.Resources.outbox
+        Me.btnOutput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnOutput.Location = New System.Drawing.Point(12, 112)
+        Me.btnOutput.Name = "btnOutput"
+        Me.btnOutput.Size = New System.Drawing.Size(46, 44)
+        Me.btnOutput.TabIndex = 8
+        Me.btnOutput.UseVisualStyleBackColor = True
         '
         'btnInbox
         '
         Me.btnInbox.BackgroundImage = Global.MsgFinal.My.Resources.Resources.inbox
         Me.btnInbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnInbox.Location = New System.Drawing.Point(64, 12)
+        Me.btnInbox.Location = New System.Drawing.Point(12, 62)
         Me.btnInbox.Name = "btnInbox"
         Me.btnInbox.Size = New System.Drawing.Size(46, 44)
         Me.btnInbox.TabIndex = 7
@@ -107,7 +118,7 @@ Partial Class MainAction
         '
         Me.btnFreq.BackgroundImage = Global.MsgFinal.My.Resources.Resources.account_alert
         Me.btnFreq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnFreq.Location = New System.Drawing.Point(404, 12)
+        Me.btnFreq.Location = New System.Drawing.Point(220, 12)
         Me.btnFreq.Name = "btnFreq"
         Me.btnFreq.Size = New System.Drawing.Size(46, 44)
         Me.btnFreq.TabIndex = 4
@@ -117,7 +128,7 @@ Partial Class MainAction
         '
         Me.btnFriend.BackgroundImage = Global.MsgFinal.My.Resources.Resources.account_multiple
         Me.btnFriend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnFriend.Location = New System.Drawing.Point(456, 12)
+        Me.btnFriend.Location = New System.Drawing.Point(272, 12)
         Me.btnFriend.Name = "btnFriend"
         Me.btnFriend.Size = New System.Drawing.Size(46, 44)
         Me.btnFriend.TabIndex = 3
@@ -127,7 +138,7 @@ Partial Class MainAction
         '
         Me.btnProfile.BackgroundImage = Global.MsgFinal.My.Resources.Resources.account_card_details
         Me.btnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnProfile.Location = New System.Drawing.Point(508, 12)
+        Me.btnProfile.Location = New System.Drawing.Point(324, 12)
         Me.btnProfile.Name = "btnProfile"
         Me.btnProfile.Size = New System.Drawing.Size(46, 44)
         Me.btnProfile.TabIndex = 2
@@ -137,8 +148,9 @@ Partial Class MainAction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(566, 266)
-        Me.Controls.Add(Me.Button2)
+        Me.ClientSize = New System.Drawing.Size(434, 266)
+        Me.Controls.Add(Me.btnSignOut)
+        Me.Controls.Add(Me.btnOutput)
         Me.Controls.Add(Me.btnInbox)
         Me.Controls.Add(Me.btnCompose)
         Me.Controls.Add(Me.lvNotify)
@@ -146,9 +158,12 @@ Partial Class MainAction
         Me.Controls.Add(Me.btnFriend)
         Me.Controls.Add(Me.btnProfile)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "MainAction"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "MainAction"
+        Me.Text = "Main Menu"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -164,5 +179,6 @@ Partial Class MainAction
     Friend WithEvents btnCompose As System.Windows.Forms.Button
     Friend WithEvents ttComp As System.Windows.Forms.ToolTip
     Friend WithEvents btnInbox As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnOutput As System.Windows.Forms.Button
+    Friend WithEvents btnSignOut As System.Windows.Forms.Button
 End Class

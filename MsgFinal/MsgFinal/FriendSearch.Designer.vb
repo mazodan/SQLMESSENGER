@@ -87,9 +87,12 @@ Partial Class FriendSearch
         Me.Controls.Add(Me.dgv_FR)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtSearch)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FriendSearch"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FriendSearch"
+        Me.Text = "Search Friends"
         CType(Me.dgv_FR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

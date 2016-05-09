@@ -151,13 +151,6 @@ Namespace My.Resources
             End Get
         End Property
         
-        Friend ReadOnly Property ecMAkxdzi() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("ecMAkxdzi", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
         Friend ReadOnly Property edit_cut_icon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("edit-cut-icon", resourceCulture)
@@ -196,6 +189,13 @@ Namespace My.Resources
         Friend ReadOnly Property paste() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("paste", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property power() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("power", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

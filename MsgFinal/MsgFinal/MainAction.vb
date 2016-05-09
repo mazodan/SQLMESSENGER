@@ -1,8 +1,4 @@
-﻿'temporary import
-Imports MySql.Data.MySqlClient
-Imports System.Data.SqlClient
-
-Public Class MainAction
+﻿Public Class MainAction
     Dim closeState As Boolean = True
 
 
@@ -30,7 +26,7 @@ Public Class MainAction
         End If
     End Sub
 
-    
+
     Private Sub btnFriend_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFriend.Click
         FriendList.Show()
         Me.Hide()
@@ -73,26 +69,17 @@ Public Class MainAction
         End If
     End Sub
 
-
-    'Private Function CpuID() As String
-    '    ' Get the Windows Management Instrumentation object.
-    '    Dim wmi As Object = GetObject("WinMgmts:")
-
-    '    ' Get the "base boards" (mother boards).
-    '    Dim serial_numbers As String = ""
-    '    Dim mother_boards As Object = _
-    '        wmi.InstancesOf("Win32_BaseBoard")
-    '    For Each board As Object In mother_boards
-    '        serial_numbers &= ", " & board.SerialNumber
-    '    Next board
-    '    If serial_numbers.Length > 0 Then serial_numbers = _
-    '        serial_numbers.Substring(2)
-
-    '    Return serial_numbers
-    'End Function
-
     Private Sub btnInbox_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInbox.Click
         Me.Hide()
         MessageList.Show()
+    End Sub
+
+    Private Sub btnOutput_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOutput.Click
+        Me.Hide()
+        Outbox.Show()
+    End Sub
+
+    Private Sub btnSignOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignOut.Click
+        Me.Close()
     End Sub
 End Class

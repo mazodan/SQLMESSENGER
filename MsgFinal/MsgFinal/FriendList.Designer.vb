@@ -90,9 +90,12 @@ Partial Class FriendList
         Me.Controls.Add(Me.lstVwFriends)
         Me.Controls.Add(Me.lblFrCount)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FriendList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FriendList"
+        Me.Text = "Friends List"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

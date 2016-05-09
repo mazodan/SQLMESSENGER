@@ -51,23 +51,34 @@ Module MessagesModule
         Next
     End Sub
 
-    Sub AddMessageToListview(ByVal lv As ListView)
+    Sub AddMessageToListview(ByVal lv As ListView, ByVal outbox As Boolean)
+        Dim query As String
+        Dim srcTbl As String
+        If outbox = False Then
+            srcTbl = "message"
+            query = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " order by sendDate ASC"
+        Else
+            srcTbl = "outbox"
+            query = "select id,subject,senderID,receiverID,sendDate from outbox where senderID=" + getUsrID(CurUser) + " order by sendDate ASC"
+        End If
+
         conn.Open()
-        Dim query As String = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " order by sendDate ASC"
         Dim comm As New MySqlCommand(query, conn)
         Dim adpt As New MySqlDataAdapter(comm)
         Dim dset As New DataSet()
-        adpt.Fill(dset, "message")
+        adpt.Fill(dset, srcTbl)
         conn.Close()
 
         lv.Items.Clear()
         For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
             Dim checkL As String = "✓"
 
-            If dset.Tables(0).Rows(x)(5).ToString = 0 Then
-                checkL = "✓"
-            Else
-                checkL = " "
+            If outbox = False Then
+                If dset.Tables(0).Rows(x)(5).ToString = 0 Then
+                    checkL = "✓"
+                Else
+                    checkL = " "
+                End If
             End If
 
             Dim r() As String = {dset.Tables(0).Rows(x)(1).ToString, getUsernameFromID(dset.Tables(0).Rows(x)(2).ToString), getUsernameFromID(dset.Tables(0).Rows(x)(3).ToString), dset.Tables(0).Rows(x)(4).ToString, checkL}
@@ -78,9 +89,20 @@ Module MessagesModule
         Next
     End Sub
 
-    Sub viewMessage(ByVal lv As RichTextBox, ByVal pw As String, ByVal id As String)
+    Sub viewMessage(ByVal lv As RichTextBox, ByVal pw As String, ByVal id As String, ByVal outbox As Boolean)
+        Dim query As String
+        Dim srcTbl As String
+
+        If outbox = False Then
+            srcTbl = "message"
+            query = "select message from message where id=@id"
+        Else
+            srcTbl = "outbox"
+            query = "select message from outbox where id=@id"
+        End If
+
         conn.Open()
-        Dim query As String = "select message from message where id=@id"
+
         Dim comm As New MySqlCommand(query, conn)
         comm.Parameters.AddWithValue("@id", id)
         Dim adpt As New MySqlDataAdapter(comm)
@@ -99,25 +121,40 @@ Module MessagesModule
         conn.Close()
     End Sub
 
-    Sub searchMessages(ByVal search As String, ByVal lv As ListView)
+
+
+    Sub searchMessages(ByVal search As String, ByVal lv As ListView, ByVal outbox As Boolean)
+        Dim query As String
+        Dim srcTbl As String
+
+        If outbox = False Then
+            srcTbl = "message"
+            query = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " and subject LIKE @search order by sendDate ASC"
+        Else
+            srcTbl = "outbox"
+            query = "select id,subject,senderID,receiverID,sendDate from outbox where senderID=" + getUsrID(CurUser) + " and subject LIKE @search order by sendDate ASC"
+        End If
+
         conn.Open()
-        Dim query As String = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " and subject LIKE @search order by sendDate ASC"
+
         Dim comm As New MySqlCommand(query, conn)
         search = String.Format("%{0}%", search)
         comm.Parameters.AddWithValue("@search", search)
         Dim adpt As New MySqlDataAdapter(comm)
         Dim dset As New DataSet()
-        adpt.Fill(dset, "message")
+        adpt.Fill(dset, srcTbl)
         conn.Close()
 
         lv.Items.Clear()
         For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
             Dim checkL As String = "✓"
 
-            If dset.Tables(0).Rows(x)(5).ToString = 0 Then
-                checkL = "✓"
-            Else
-                checkL = " "
+            If outbox = False Then
+                If dset.Tables(0).Rows(x)(5).ToString = 0 Then
+                    checkL = "✓"
+                Else
+                    checkL = " "
+                End If
             End If
 
             Dim r() As String = {dset.Tables(0).Rows(x)(1).ToString, getUsernameFromID(dset.Tables(0).Rows(x)(2).ToString), getUsernameFromID(dset.Tables(0).Rows(x)(3).ToString), dset.Tables(0).Rows(x)(4).ToString, checkL}
@@ -128,11 +165,21 @@ Module MessagesModule
         Next
     End Sub
 
-    'Convert.ToString(dtpBday.Value.Date)
 
-    Sub searchByDate(ByVal dt As String, ByVal lv As ListView)
+    Sub searchByDate(ByVal dt As String, ByVal lv As ListView, ByVal outbox As Boolean)
+        Dim query As String
+        Dim srcTbl As String
+
         conn.Open()
-        Dim query As String = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " and sendDate=@date order by sendDate ASC"
+        If outbox = False Then
+            srcTbl = "message"
+            query = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " and sendDate=@date order by sendDate ASC"
+        Else
+            srcTbl = "outbox"
+            query = "select id,subject,senderID,receiverID,sendDate from outbox where senderID=" + getUsrID(CurUser) + " and sendDate=@date order by sendDate ASC"
+        End If
+
+
         Dim comm As New MySqlCommand(query, conn)
         comm.Parameters.AddWithValue("@date", dt).MySqlDbType = MySqlDbType.Date
         Dim adpt As New MySqlDataAdapter(comm)
@@ -144,10 +191,12 @@ Module MessagesModule
         For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
             Dim checkL As String = "✓"
 
-            If dset.Tables(0).Rows(x)(5).ToString = 0 Then
-                checkL = "✓"
-            Else
-                checkL = " "
+            If outbox = False Then
+                If dset.Tables(0).Rows(x)(5).ToString = 0 Then
+                    checkL = "✓"
+                Else
+                    checkL = " "
+                End If
             End If
 
             Dim r() As String = {dset.Tables(0).Rows(x)(1).ToString, getUsernameFromID(dset.Tables(0).Rows(x)(2).ToString), getUsernameFromID(dset.Tables(0).Rows(x)(3).ToString), dset.Tables(0).Rows(x)(4).ToString, checkL}
@@ -158,9 +207,15 @@ Module MessagesModule
         Next
     End Sub
 
-    Sub DeleteMessage(ByVal id As String)
+    Sub DeleteMessage(ByVal id As String, ByVal outbox As Boolean)
+        Dim query As String
         conn.Open()
-        Dim query As String = "delete from message where id=" + id + ""
+        If outbox = False Then
+            query = "delete from message where id=" + id + ""
+        Else
+            query = "delete from outbox where id=" + id + ""
+        End If
+
         Dim comm As New MySqlCommand(query, conn)
         comm.ExecuteNonQuery()
         conn.Close()

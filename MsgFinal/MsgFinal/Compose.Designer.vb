@@ -308,6 +308,9 @@ Partial Class Compose
         Me.Controls.Add(Me.rtfMessage)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbFriends)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Compose"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Compose"
