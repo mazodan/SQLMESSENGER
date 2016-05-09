@@ -121,6 +121,12 @@
     <Compile Include="MainAction.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MessageContent.Designer.vb">
+      <DependentUpon>MessageContent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MessageContent.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MessageList.Designer.vb">
       <DependentUpon>MessageList.vb</DependentUpon>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainAction.resx">
       <DependentUpon>MainAction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageContent.resx">
+      <DependentUpon>MessageContent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageList.resx">
       <DependentUpon>MessageList.vb</DependentUpon>

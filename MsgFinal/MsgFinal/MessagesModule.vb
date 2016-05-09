@@ -39,18 +39,57 @@ Module MessagesModule
 
         alrt.UseVisualStyleBackColor = True
 
+        Dim c As Integer = ntfc.Items.Count
         For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
             Dim lvi As New ListViewItem()
             lvi.Text = getUsernameFromID(dset.Tables(0).Rows(x).Item(0).ToString()) + " Has sent you a Message"
             lvi.SubItems.Add(getUsernameFromID(dset.Tables(0).Rows(x).Item(0).ToString()) + " Has sent you a Message")
             ntfc.Items.Add(lvi)
-            ntfc.Items(x).ForeColor = Color.Green
-            ntfc.Items(x).Font = New Font(ntfc.Items(x).Font, FontStyle.Bold)
+            ntfc.Items(c).ForeColor = Color.Green
+            ntfc.Items(c).Font = New Font(ntfc.Items(x).Font, FontStyle.Bold)
             alrt.BackColor = Color.FromArgb(255, 255, 79, 83)
+            c += 1
         Next
     End Sub
 
     Sub AddMessageToListview(ByVal lv As ListView)
+        conn.Open()
+        Dim query As String = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " order by sendDate ASC"
+        Dim comm As New MySqlCommand(query, conn)
+        Dim adpt As New MySqlDataAdapter(comm)
+        Dim dset As New DataSet()
+        adpt.Fill(dset, "message")
+        conn.Close()
+
+        For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
+            Dim checkL As String = "✓"
+
+            If dset.Tables(0).Rows(x)(5).ToString = 0 Then
+                checkL = "✓"
+            Else
+                checkL = " "
+            End If
+
+            Dim r() As String = {dset.Tables(0).Rows(x)(1).ToString, getUsernameFromID(dset.Tables(0).Rows(x)(2).ToString), getUsernameFromID(dset.Tables(0).Rows(x)(3).ToString), dset.Tables(0).Rows(x)(4).ToString, checkL}
+            lv.Items.Add(dset.Tables(0).Rows(x)(0).ToString).SubItems.AddRange(r)
+            If checkL = "✓" Then
+                lv.Items(x).Font = New Font(MessageContent.Font, FontStyle.Bold)
+            End If
+        Next
+    End Sub
+
+    Sub viewMessage(ByVal lv As RichTextBox, ByVal pw As String, ByVal id As String)
+        conn.Open()
+        Dim query As String = "select message from message where id=@id"
+        Dim comm As New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@id", id)
+        Dim adpt As New MySqlDataAdapter(comm)
+        Dim dset As New DataSet()
+        adpt.Fill(dset, "message")
+        conn.Close()
+
+        lv.Rtf = Decrypt(dset.Tables(0).Rows(0)(0).ToString, pw)
+
 
     End Sub
 End Module

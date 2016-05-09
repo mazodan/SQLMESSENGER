@@ -27,12 +27,10 @@ Partial Class MessageList
         Me.Label1 = New System.Windows.Forms.Label
         Me.txtSearch = New System.Windows.Forms.TextBox
         Me.btnSearch = New System.Windows.Forms.Button
-        Me.btnForward = New System.Windows.Forms.Button
-        Me.btnReply = New System.Windows.Forms.Button
-        Me.btnDelete = New System.Windows.Forms.Button
         Me.dtpDate = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
         Me.btnDSearch = New System.Windows.Forms.Button
+        Me.btnDelete = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '
         'lbMessageName
@@ -80,36 +78,6 @@ Partial Class MessageList
         Me.btnSearch.Text = "Search Message"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'btnForward
-        '
-        Me.btnForward.BackgroundImage = Global.MsgFinal.My.Resources.Resources.transfer
-        Me.btnForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnForward.Location = New System.Drawing.Point(385, 267)
-        Me.btnForward.Name = "btnForward"
-        Me.btnForward.Size = New System.Drawing.Size(46, 44)
-        Me.btnForward.TabIndex = 15
-        Me.btnForward.UseVisualStyleBackColor = True
-        '
-        'btnReply
-        '
-        Me.btnReply.BackgroundImage = Global.MsgFinal.My.Resources.Resources.reply
-        Me.btnReply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnReply.Location = New System.Drawing.Point(333, 267)
-        Me.btnReply.Name = "btnReply"
-        Me.btnReply.Size = New System.Drawing.Size(46, 44)
-        Me.btnReply.TabIndex = 10
-        Me.btnReply.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.BackgroundImage = Global.MsgFinal.My.Resources.Resources.delete_forever1
-        Me.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnDelete.Location = New System.Drawing.Point(437, 267)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(46, 44)
-        Me.btnDelete.TabIndex = 9
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
         'dtpDate
         '
         Me.dtpDate.Location = New System.Drawing.Point(494, 162)
@@ -136,6 +104,16 @@ Partial Class MessageList
         Me.btnDSearch.Text = "Search Message"
         Me.btnDSearch.UseVisualStyleBackColor = True
         '
+        'btnDelete
+        '
+        Me.btnDelete.BackgroundImage = Global.MsgFinal.My.Resources.Resources.delete_forever1
+        Me.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnDelete.Location = New System.Drawing.Point(437, 267)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(46, 44)
+        Me.btnDelete.TabIndex = 9
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
         'MessageList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -144,11 +122,9 @@ Partial Class MessageList
         Me.Controls.Add(Me.btnDSearch)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtpDate)
-        Me.Controls.Add(Me.btnForward)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnReply)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.lvMessageBox)
         Me.Controls.Add(Me.lbMessageName)
@@ -163,11 +139,9 @@ Partial Class MessageList
     Friend WithEvents lbMessageName As System.Windows.Forms.Label
     Friend WithEvents lvMessageBox As System.Windows.Forms.ListView
     Friend WithEvents btnDelete As System.Windows.Forms.Button
-    Friend WithEvents btnReply As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents btnSearch As System.Windows.Forms.Button
-    Friend WithEvents btnForward As System.Windows.Forms.Button
     Friend WithEvents dtpDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnDSearch As System.Windows.Forms.Button
