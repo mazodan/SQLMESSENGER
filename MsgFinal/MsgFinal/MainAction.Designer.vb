@@ -30,7 +30,7 @@ Partial Class MainAction
         Me.lvNotify = New System.Windows.Forms.ListView
         Me.ttComp = New System.Windows.Forms.ToolTip(Me.components)
         Me.Button2 = New System.Windows.Forms.Button
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.btnInbox = New System.Windows.Forms.Button
         Me.btnCompose = New System.Windows.Forms.Button
         Me.btnFreq = New System.Windows.Forms.Button
         Me.btnFriend = New System.Windows.Forms.Button
@@ -83,15 +83,15 @@ Partial Class MainAction
         Me.Button2.TabIndex = 8
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnInbox
         '
-        Me.Button1.BackgroundImage = Global.MsgFinal.My.Resources.Resources.inbox
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.Location = New System.Drawing.Point(64, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(46, 44)
-        Me.Button1.TabIndex = 7
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnInbox.BackgroundImage = Global.MsgFinal.My.Resources.Resources.inbox
+        Me.btnInbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnInbox.Location = New System.Drawing.Point(64, 12)
+        Me.btnInbox.Name = "btnInbox"
+        Me.btnInbox.Size = New System.Drawing.Size(46, 44)
+        Me.btnInbox.TabIndex = 7
+        Me.btnInbox.UseVisualStyleBackColor = True
         '
         'btnCompose
         '
@@ -139,7 +139,7 @@ Partial Class MainAction
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(566, 266)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnInbox)
         Me.Controls.Add(Me.btnCompose)
         Me.Controls.Add(Me.lvNotify)
         Me.Controls.Add(Me.btnFreq)
@@ -163,6 +163,6 @@ Partial Class MainAction
     Friend WithEvents lvNotify As System.Windows.Forms.ListView
     Friend WithEvents btnCompose As System.Windows.Forms.Button
     Friend WithEvents ttComp As System.Windows.Forms.ToolTip
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnInbox As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

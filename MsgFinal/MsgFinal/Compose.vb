@@ -1,6 +1,4 @@
-﻿'temp import
-'MESSAGE ENCRYPTION IS A SUCCESS
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 Imports System.Data.SqlClient
 
 Public Class Compose
@@ -22,12 +20,9 @@ Public Class Compose
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        conn.Open()
-        Dim query As String = "insert into message (message) values ('" + Encrypt(Me.rtfMessage.Rtf, "HELLO") + "')"
-        Dim comm As New MySqlCommand(query, conn)
-        comm.ExecuteNonQuery()
-        conn.Close()
-        MessageBox.Show("Code execution success")
+        If cmbFont.Text <> "" Or txtSubject.Text.Length > 0 Then
+            sendMessage(txtSubject.Text, cmbFriends.Text, rtfMessage)
+        End If
     End Sub
 
    

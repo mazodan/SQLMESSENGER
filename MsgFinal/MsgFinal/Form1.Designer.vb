@@ -103,7 +103,7 @@ Partial Class Form1
         Me.txtPass.Location = New System.Drawing.Point(110, 108)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.Size = New System.Drawing.Size(100, 22)
-        Me.txtPass.TabIndex = 8
+        Me.txtPass.TabIndex = 4
         Me.txtPass.UseSystemPasswordChar = True
         '
         'Form1

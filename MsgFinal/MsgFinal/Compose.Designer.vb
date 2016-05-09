@@ -29,25 +29,27 @@ Partial Class Compose
         Me.Label2 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.tsMain = New System.Windows.Forms.ToolStrip
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.cmbFontSize = New System.Windows.Forms.ToolStripComboBox
-        Me.cmbFont = New System.Windows.Forms.ToolStripComboBox
-        Me.cdColors = New System.Windows.Forms.ColorDialog
-        Me.ofd = New System.Windows.Forms.OpenFileDialog
         Me.btnBold = New System.Windows.Forms.ToolStripButton
         Me.btnItalic = New System.Windows.Forms.ToolStripButton
         Me.btnUnderline = New System.Windows.Forms.ToolStripButton
         Me.btnStrikeThrough = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.btnCut = New System.Windows.Forms.ToolStripButton
         Me.btnCopy = New System.Windows.Forms.ToolStripButton
         Me.btnPaste = New System.Windows.Forms.ToolStripButton
         Me.btnSelectAll = New System.Windows.Forms.ToolStripButton
+        Me.cmbFontSize = New System.Windows.Forms.ToolStripComboBox
+        Me.cmbFont = New System.Windows.Forms.ToolStripComboBox
         Me.btnLeftAlign = New System.Windows.Forms.ToolStripButton
         Me.btnCenter = New System.Windows.Forms.ToolStripButton
         Me.btnRight = New System.Windows.Forms.ToolStripButton
         Me.btnPic = New System.Windows.Forms.ToolStripButton
         Me.btnColor = New System.Windows.Forms.ToolStripButton
+        Me.cdColors = New System.Windows.Forms.ColorDialog
+        Me.ofd = New System.Windows.Forms.OpenFileDialog
         Me.pbPhoto = New System.Windows.Forms.PictureBox
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.txtSubject = New System.Windows.Forms.TextBox
         Me.tsMain.SuspendLayout()
         CType(Me.pbPhoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -110,33 +112,6 @@ Partial Class Compose
         Me.tsMain.TabIndex = 5
         Me.tsMain.Text = "ToolStrip1"
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'cmbFontSize
-        '
-        Me.cmbFontSize.AutoSize = False
-        Me.cmbFontSize.Items.AddRange(New Object() {"8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72"})
-        Me.cmbFontSize.Name = "cmbFontSize"
-        Me.cmbFontSize.Size = New System.Drawing.Size(40, 23)
-        Me.cmbFontSize.Text = "11"
-        Me.cmbFontSize.ToolTipText = "Font Size"
-        '
-        'cmbFont
-        '
-        Me.cmbFont.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbFont.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbFont.Items.AddRange(New Object() {"Arial", "Calibri", "Cambria", "Comic Sans MS", "Consolas", "Courier New", "Georgia", "Impact", "Palatino Linotype", "Segoe UI", "Times New Roman", "Trebuchet MS", "Verdana"})
-        Me.cmbFont.Name = "cmbFont"
-        Me.cmbFont.Size = New System.Drawing.Size(130, 25)
-        Me.cmbFont.ToolTipText = "Font"
-        '
-        'ofd
-        '
-        Me.ofd.FileName = "OpenFileDialog1"
-        '
         'btnBold
         '
         Me.btnBold.CheckOnClick = True
@@ -184,6 +159,11 @@ Partial Class Compose
         Me.btnStrikeThrough.Text = "S"
         Me.btnStrikeThrough.ToolTipText = "Strikeout"
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
         'btnCut
         '
         Me.btnCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -219,6 +199,24 @@ Partial Class Compose
         Me.btnSelectAll.Name = "btnSelectAll"
         Me.btnSelectAll.Size = New System.Drawing.Size(23, 22)
         Me.btnSelectAll.Text = "Select All"
+        '
+        'cmbFontSize
+        '
+        Me.cmbFontSize.AutoSize = False
+        Me.cmbFontSize.Items.AddRange(New Object() {"8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72"})
+        Me.cmbFontSize.Name = "cmbFontSize"
+        Me.cmbFontSize.Size = New System.Drawing.Size(40, 23)
+        Me.cmbFontSize.Text = "11"
+        Me.cmbFontSize.ToolTipText = "Font Size"
+        '
+        'cmbFont
+        '
+        Me.cmbFont.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbFont.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbFont.Items.AddRange(New Object() {"Arial", "Calibri", "Cambria", "Comic Sans MS", "Consolas", "Courier New", "Georgia", "Impact", "Palatino Linotype", "Segoe UI", "Times New Roman", "Trebuchet MS", "Verdana"})
+        Me.cmbFont.Name = "cmbFont"
+        Me.cmbFont.Size = New System.Drawing.Size(130, 25)
+        Me.cmbFont.ToolTipText = "Font"
         '
         'btnLeftAlign
         '
@@ -265,6 +263,10 @@ Partial Class Compose
         Me.btnColor.Size = New System.Drawing.Size(23, 22)
         Me.btnColor.ToolTipText = "Paint"
         '
+        'ofd
+        '
+        Me.ofd.FileName = "OpenFileDialog1"
+        '
         'pbPhoto
         '
         Me.pbPhoto.Location = New System.Drawing.Point(677, 12)
@@ -274,11 +276,31 @@ Partial Class Compose
         Me.pbPhoto.TabIndex = 6
         Me.pbPhoto.TabStop = False
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(278, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 13)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Subject:"
+        '
+        'txtSubject
+        '
+        Me.txtSubject.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSubject.Location = New System.Drawing.Point(330, 6)
+        Me.txtSubject.MaxLength = 60
+        Me.txtSubject.Name = "txtSubject"
+        Me.txtSubject.Size = New System.Drawing.Size(282, 22)
+        Me.txtSubject.TabIndex = 8
+        '
         'Compose
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(764, 424)
+        Me.Controls.Add(Me.txtSubject)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.pbPhoto)
         Me.Controls.Add(Me.tsMain)
         Me.Controls.Add(Me.Button1)
@@ -321,4 +343,6 @@ Partial Class Compose
     Friend WithEvents btnPic As System.Windows.Forms.ToolStripButton
     Friend WithEvents ofd As System.Windows.Forms.OpenFileDialog
     Friend WithEvents pbPhoto As System.Windows.Forms.PictureBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents txtSubject As System.Windows.Forms.TextBox
 End Class

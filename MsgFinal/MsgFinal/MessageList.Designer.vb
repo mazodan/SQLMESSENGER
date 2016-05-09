@@ -23,16 +23,16 @@ Partial Class MessageList
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lbMessageName = New System.Windows.Forms.Label
-        Me.ListView1 = New System.Windows.Forms.ListView
+        Me.lvMessageBox = New System.Windows.Forms.ListView
         Me.Label1 = New System.Windows.Forms.Label
         Me.txtSearch = New System.Windows.Forms.TextBox
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.btnSearch = New System.Windows.Forms.Button
         Me.btnForward = New System.Windows.Forms.Button
         Me.btnReply = New System.Windows.Forms.Button
         Me.btnDelete = New System.Windows.Forms.Button
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.dtpDate = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Button2 = New System.Windows.Forms.Button
+        Me.btnDSearch = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '
         'lbMessageName
@@ -45,14 +45,14 @@ Partial Class MessageList
         Me.lbMessageName.TabIndex = 3
         Me.lbMessageName.Text = "Inbox"
         '
-        'ListView1
+        'lvMessageBox
         '
-        Me.ListView1.Location = New System.Drawing.Point(12, 42)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(471, 219)
-        Me.ListView1.TabIndex = 4
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
+        Me.lvMessageBox.Location = New System.Drawing.Point(12, 42)
+        Me.lvMessageBox.Name = "lvMessageBox"
+        Me.lvMessageBox.Size = New System.Drawing.Size(471, 219)
+        Me.lvMessageBox.TabIndex = 4
+        Me.lvMessageBox.UseCompatibleStateImageBehavior = False
+        Me.lvMessageBox.View = System.Windows.Forms.View.Details
         '
         'Label1
         '
@@ -60,25 +60,25 @@ Partial Class MessageList
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(489, 42)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(155, 30)
+        Me.Label1.Size = New System.Drawing.Size(187, 30)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Search by Text"
+        Me.Label1.Text = "Search by Subject"
         '
         'txtSearch
         '
         Me.txtSearch.Location = New System.Drawing.Point(494, 75)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(121, 22)
+        Me.txtSearch.Size = New System.Drawing.Size(182, 22)
         Me.txtSearch.TabIndex = 13
         '
-        'Button1
+        'btnSearch
         '
-        Me.Button1.Location = New System.Drawing.Point(494, 103)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(121, 23)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Search Message"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSearch.Location = New System.Drawing.Point(494, 103)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(121, 23)
+        Me.btnSearch.TabIndex = 14
+        Me.btnSearch.Text = "Search Message"
+        Me.btnSearch.UseVisualStyleBackColor = True
         '
         'btnForward
         '
@@ -110,12 +110,12 @@ Partial Class MessageList
         Me.btnDelete.TabIndex = 9
         Me.btnDelete.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'dtpDate
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(494, 162)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(209, 22)
-        Me.DateTimePicker1.TabIndex = 16
+        Me.dtpDate.Location = New System.Drawing.Point(494, 162)
+        Me.dtpDate.Name = "dtpDate"
+        Me.dtpDate.Size = New System.Drawing.Size(209, 22)
+        Me.dtpDate.TabIndex = 16
         '
         'Label2
         '
@@ -127,47 +127,48 @@ Partial Class MessageList
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Search by Date"
         '
-        'Button2
+        'btnDSearch
         '
-        Me.Button2.Location = New System.Drawing.Point(494, 190)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(121, 23)
-        Me.Button2.TabIndex = 18
-        Me.Button2.Text = "Search Message"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnDSearch.Location = New System.Drawing.Point(494, 190)
+        Me.btnDSearch.Name = "btnDSearch"
+        Me.btnDSearch.Size = New System.Drawing.Size(121, 23)
+        Me.btnDSearch.TabIndex = 18
+        Me.btnDSearch.Text = "Search Message"
+        Me.btnDSearch.UseVisualStyleBackColor = True
         '
         'MessageList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(711, 323)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnDSearch)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtpDate)
         Me.Controls.Add(Me.btnForward)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnReply)
         Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.lvMessageBox)
         Me.Controls.Add(Me.lbMessageName)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "MessageList"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MessageList"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents lbMessageName As System.Windows.Forms.Label
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents lvMessageBox As System.Windows.Forms.ListView
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnReply As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents btnForward As System.Windows.Forms.Button
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnDSearch As System.Windows.Forms.Button
 End Class

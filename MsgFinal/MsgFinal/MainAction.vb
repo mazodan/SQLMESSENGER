@@ -47,6 +47,7 @@ Public Class MainAction
 
     Private Sub MainAction_VisibleChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.VisibleChanged
         notifyRequest(lvNotify, btnFreq)
+        MessageNotification(lvNotify, btnInbox)
     End Sub
 
     Private Sub MainAction_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -85,4 +86,8 @@ Public Class MainAction
 
     '    Return serial_numbers
     'End Function
+
+    Private Sub btnInbox_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInbox.Click
+        MessageList.ShowDialog()
+    End Sub
 End Class
