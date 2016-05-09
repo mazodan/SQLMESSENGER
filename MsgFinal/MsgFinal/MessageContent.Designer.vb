@@ -27,6 +27,8 @@ Partial Class MessageContent
         Me.btnForward = New System.Windows.Forms.Button
         Me.btnReply = New System.Windows.Forms.Button
         Me.rtfInfo = New System.Windows.Forms.RichTextBox
+        Me.lblSend = New System.Windows.Forms.Label
+        Me.lblSubj = New System.Windows.Forms.Label
         Me.SuspendLayout()
         '
         'Label1
@@ -34,7 +36,7 @@ Partial Class MessageContent
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(13, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 13)
+        Me.Label1.Size = New System.Drawing.Size(46, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Sender:"
         '
@@ -43,7 +45,7 @@ Partial Class MessageContent
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(13, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.Size = New System.Drawing.Size(48, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Subject:"
         '
@@ -77,16 +79,37 @@ Partial Class MessageContent
         Me.rtfInfo.TabIndex = 18
         Me.rtfInfo.Text = ""
         '
+        'lblSend
+        '
+        Me.lblSend.AutoSize = True
+        Me.lblSend.Location = New System.Drawing.Point(66, 13)
+        Me.lblSend.Name = "lblSend"
+        Me.lblSend.Size = New System.Drawing.Size(40, 13)
+        Me.lblSend.TabIndex = 19
+        Me.lblSend.Text = "Label3"
+        '
+        'lblSubj
+        '
+        Me.lblSubj.AutoSize = True
+        Me.lblSubj.Location = New System.Drawing.Point(66, 37)
+        Me.lblSubj.Name = "lblSubj"
+        Me.lblSubj.Size = New System.Drawing.Size(40, 13)
+        Me.lblSubj.TabIndex = 20
+        Me.lblSubj.Text = "Label4"
+        '
         'MessageContent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(765, 407)
+        Me.Controls.Add(Me.lblSubj)
+        Me.Controls.Add(Me.lblSend)
         Me.Controls.Add(Me.rtfInfo)
         Me.Controls.Add(Me.btnReply)
         Me.Controls.Add(Me.btnForward)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "MessageContent"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MessageContent"
@@ -99,4 +122,6 @@ Partial Class MessageContent
     Friend WithEvents btnForward As System.Windows.Forms.Button
     Friend WithEvents btnReply As System.Windows.Forms.Button
     Friend WithEvents rtfInfo As System.Windows.Forms.RichTextBox
+    Friend WithEvents lblSend As System.Windows.Forms.Label
+    Friend WithEvents lblSubj As System.Windows.Forms.Label
 End Class

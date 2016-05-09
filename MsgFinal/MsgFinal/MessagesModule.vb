@@ -19,7 +19,6 @@ Module MessagesModule
         comm.Parameters.AddWithValue("@send", Convert.ToInt32(getUsrID(CurUser)))
         comm.Parameters.AddWithValue("@rcv", Convert.ToInt32(getUsrID(receiver)))
         comm.Parameters.AddWithValue("@msg", Encrypt(message.Rtf, CurUser + receiver))
-        comm.Parameters.AddWithValue("@mr", 0)
         comm.Parameters.AddWithValue("@subj", subject)
         comm.ExecuteNonQuery()
         conn.Close()
@@ -61,6 +60,7 @@ Module MessagesModule
         adpt.Fill(dset, "message")
         conn.Close()
 
+        lv.Items.Clear()
         For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
             Dim checkL As String = "✓"
 
@@ -89,7 +89,81 @@ Module MessagesModule
         conn.Close()
 
         lv.Rtf = Decrypt(dset.Tables(0).Rows(0)(0).ToString, pw)
+    End Sub
 
+    Sub markRead(ByVal id As String)
+        conn.Open()
+        Dim query As String = "update message set markedread=1 where id=" + id + ""
+        Dim comm As New MySqlCommand(query, conn)
+        comm.ExecuteNonQuery()
+        conn.Close()
+    End Sub
+
+    Sub searchMessages(ByVal search As String, ByVal lv As ListView)
+        conn.Open()
+        Dim query As String = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " and subject LIKE @search order by sendDate ASC"
+        Dim comm As New MySqlCommand(query, conn)
+        search = String.Format("%{0}%", search)
+        comm.Parameters.AddWithValue("@search", search)
+        Dim adpt As New MySqlDataAdapter(comm)
+        Dim dset As New DataSet()
+        adpt.Fill(dset, "message")
+        conn.Close()
+
+        lv.Items.Clear()
+        For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
+            Dim checkL As String = "✓"
+
+            If dset.Tables(0).Rows(x)(5).ToString = 0 Then
+                checkL = "✓"
+            Else
+                checkL = " "
+            End If
+
+            Dim r() As String = {dset.Tables(0).Rows(x)(1).ToString, getUsernameFromID(dset.Tables(0).Rows(x)(2).ToString), getUsernameFromID(dset.Tables(0).Rows(x)(3).ToString), dset.Tables(0).Rows(x)(4).ToString, checkL}
+            lv.Items.Add(dset.Tables(0).Rows(x)(0).ToString).SubItems.AddRange(r)
+            If checkL = "✓" Then
+                lv.Items(x).Font = New Font(MessageContent.Font, FontStyle.Bold)
+            End If
+        Next
+    End Sub
+
+    'Convert.ToString(dtpBday.Value.Date)
+
+    Sub searchByDate(ByVal dt As String, ByVal lv As ListView)
+        conn.Open()
+        Dim query As String = "select id,subject,senderID,receiverID,sendDate,markedread from message where receiverID=" + getUsrID(CurUser) + " and sendDate=@date order by sendDate ASC"
+        Dim comm As New MySqlCommand(query, conn)
+        comm.Parameters.AddWithValue("@date", dt).MySqlDbType = MySqlDbType.Date
+        Dim adpt As New MySqlDataAdapter(comm)
+        Dim dset As New DataSet()
+        adpt.Fill(dset, "message")
+        conn.Close()
+
+        lv.Items.Clear()
+        For x As Integer = 0 To (dset.Tables(0).Rows.Count - 1)
+            Dim checkL As String = "✓"
+
+            If dset.Tables(0).Rows(x)(5).ToString = 0 Then
+                checkL = "✓"
+            Else
+                checkL = " "
+            End If
+
+            Dim r() As String = {dset.Tables(0).Rows(x)(1).ToString, getUsernameFromID(dset.Tables(0).Rows(x)(2).ToString), getUsernameFromID(dset.Tables(0).Rows(x)(3).ToString), dset.Tables(0).Rows(x)(4).ToString, checkL}
+            lv.Items.Add(dset.Tables(0).Rows(x)(0).ToString).SubItems.AddRange(r)
+            If checkL = "✓" Then
+                lv.Items(x).Font = New Font(MessageContent.Font, FontStyle.Bold)
+            End If
+        Next
+    End Sub
+
+    Sub DeleteMessage(ByVal id As String)
+        conn.Open()
+        Dim query As String = "delete from message where id=" + id + ""
+        Dim comm As New MySqlCommand(query, conn)
+        comm.ExecuteNonQuery()
+        conn.Close()
 
     End Sub
 End Module

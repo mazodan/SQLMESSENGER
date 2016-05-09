@@ -4,22 +4,10 @@ Imports System.Data.SqlClient
 Public Class Compose
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost;Database=messengerdata;User ID=root;Password=root")
     Private Sub Compose_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        For Each elm As String In getFriendsToList(getUsrID(CurUser))
-            cmbFriends.Items.Add(elm)
-        Next
-
-        'conn.Open()
-        'Dim query As String = "select message from message where id=3"
-        'Dim comm As New MySqlCommand(query, conn)
-        'Dim dr As MySqlDataReader = comm.ExecuteReader()
-        'dr.Read()
-        'Me.rtfMessage.Rtf = Decrypt(dr.GetString(0), "HELLO")
-        'conn.Close()
-
-        'cmbFont.SelectedItem = cmbFont.FindString("Segoe UI").ToString
+        
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSend.Click
         If cmbFont.Text <> "" Or txtSubject.Text.Length > 0 Then
             sendMessage(txtSubject.Text, cmbFriends.Text, rtfMessage)
         End If

@@ -63,6 +63,10 @@ Public Class MainAction
         Dim flist As New List(Of String)
         flist = getFriendsToList(getUsrID(CurUser))
         If flist.Count > 0 Then
+            For Each elm As String In getFriendsToList(getUsrID(CurUser))
+                Compose.cmbFriends.Items.Add(elm)
+            Next
+            Compose.rtfMessage.Clear()
             Compose.ShowDialog()
         Else
             MessageBox.Show("You have no friends, go get some")
@@ -88,6 +92,7 @@ Public Class MainAction
     'End Function
 
     Private Sub btnInbox_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInbox.Click
-        MessageList.ShowDialog()
+        Me.Hide()
+        MessageList.Show()
     End Sub
 End Class

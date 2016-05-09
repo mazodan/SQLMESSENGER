@@ -27,7 +27,7 @@ Partial Class Compose
         Me.Label1 = New System.Windows.Forms.Label
         Me.rtfMessage = New System.Windows.Forms.RichTextBox
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.btnSend = New System.Windows.Forms.Button
         Me.tsMain = New System.Windows.Forms.ToolStrip
         Me.btnBold = New System.Windows.Forms.ToolStripButton
         Me.btnItalic = New System.Windows.Forms.ToolStripButton
@@ -92,14 +92,14 @@ Partial Class Compose
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Message:"
         '
-        'Button1
+        'btnSend
         '
-        Me.Button1.Location = New System.Drawing.Point(677, 389)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSend.Location = New System.Drawing.Point(677, 389)
+        Me.btnSend.Name = "btnSend"
+        Me.btnSend.Size = New System.Drawing.Size(75, 23)
+        Me.btnSend.TabIndex = 4
+        Me.btnSend.Text = "Send"
+        Me.btnSend.UseVisualStyleBackColor = True
         '
         'tsMain
         '
@@ -303,7 +303,7 @@ Partial Class Compose
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.pbPhoto)
         Me.Controls.Add(Me.tsMain)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnSend)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.rtfMessage)
         Me.Controls.Add(Me.Label1)
@@ -322,7 +322,7 @@ Partial Class Compose
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents rtfMessage As System.Windows.Forms.RichTextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSend As System.Windows.Forms.Button
     Friend WithEvents tsMain As System.Windows.Forms.ToolStrip
     Friend WithEvents btnBold As System.Windows.Forms.ToolStripButton
     Friend WithEvents btnItalic As System.Windows.Forms.ToolStripButton
